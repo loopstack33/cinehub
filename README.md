@@ -1,4 +1,4 @@
-# Pancake
+# CineHub
 
 ![image1](assets/pancake.png)
 
