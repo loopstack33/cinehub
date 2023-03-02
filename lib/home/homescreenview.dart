@@ -22,7 +22,12 @@ class _HomescreenbodyState extends State<Homescreenbody>
         Container(
           height: 45,
           margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-          child: Image.asset('assets/appbar.png'),
+          //child: Image.asset('assets/appbar.png'),
+          child: const Text(
+            "CineHub",
+            style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
         ),
         const SizedBox(
           height: 10,

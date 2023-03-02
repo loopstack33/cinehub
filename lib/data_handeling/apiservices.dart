@@ -2,13 +2,11 @@ import 'package:dio/dio.dart';
 import 'dart:async';
 import 'package:pancake/data_handeling/models/models.dart';
 
-
 class ApiService {
   final Dio _dio = Dio();
 
   final String baseUrl = 'https://api.themoviedb.org/3';
-  final String apiKey = 'api_key=#####################';
-
+  final String apiKey = 'api_key=b5988b0061e919ed7e96be01b0d84352';
 
   Future<List<Genres>> getGenreList(String mediatype) async {
     try {
@@ -62,7 +60,6 @@ class ApiService {
     }
   }
 
-
   Future<List<Movie>> getPopularMovie() async {
     try {
       final url = '$baseUrl/movie/popular?$apiKey';
@@ -115,7 +112,6 @@ class ApiService {
     }
   }
 
-
   Future<List<TVshow>> getPopularTVshow() async {
     try {
       final url = '$baseUrl/tv/popular?$apiKey';
@@ -167,7 +163,6 @@ class ApiService {
           'Exception accoured: $error with stacktrace: $stacktrace');
     }
   }
-
 
   Future<Moviedetail> getMovieDetail(String id) async {
     try {
@@ -256,5 +251,4 @@ class ApiService {
           'Exception accoured: $error with stacktrace: $stacktrace');
     }
   }
-
 }

@@ -30,12 +30,18 @@ class _GridViewDatamovieState extends State<GridViewDatamovie> {
               child: Container(
                 height: 45,
                 margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: Image.asset('assets/appbar.png'),
+                // child: Image.asset('assets/appbar.png'),
+                child: const Text(
+                  "CineHub",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               )),
-          body: Stack(
-            children:[
-              Backgroupimage(imageback: selectedbackimg),
-              FutureBuilder(
+          body: Stack(children: [
+            Backgroupimage(imageback: selectedbackimg),
+            FutureBuilder(
               future: widget.futre,
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData) {
@@ -45,18 +51,17 @@ class _GridViewDatamovieState extends State<GridViewDatamovie> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           ClipRRect(
-                              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                              child:
-                                  Image(image: AssetImage('assets/notfound.png'))),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                              child: Image(
+                                  image: AssetImage('assets/notfound.png'))),
                           SizedBox(
                             height: 20,
                           ),
                         ],
                       ),
                     );
-                  }
-                  else
-                  {
+                  } else {
                     return Column(
                       children: [
                         SizedBox(
@@ -135,14 +140,12 @@ class _GridViewDatamovieState extends State<GridViewDatamovie> {
                 }
               },
             ),
-          ]
-          ),
+          ]),
         ),
       ),
     );
   }
 }
-
 
 class GridViewDatatv extends StatefulWidget {
   const GridViewDatatv({
@@ -170,113 +173,115 @@ class _GridViewDatatvState extends State<GridViewDatatv> {
               child: Container(
                 height: 45,
                 margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: Image.asset('assets/appbar.png'),
+                // child: Image.asset('assets/appbar.png'),
+                child: const Text(
+                  "CineHub",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
               )),
-          body: Stack(
-              children:[
-                Backgroupimage(imageback: selectedbackimg),
-                FutureBuilder(
-                  future: widget.futre,
-                  builder: (BuildContext context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData) {
-                      if (snapshot.data.length == 0) {
-                        return Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                               ClipRRect(
-                                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                                  child:
-                                  Image(image: AssetImage('assets/notfound.png'))),
-                               SizedBox(
-                                height: 20,
-                              ),
-                            ],
+          body: Stack(children: [
+            Backgroupimage(imageback: selectedbackimg),
+            FutureBuilder(
+              future: widget.futre,
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  if (snapshot.data.length == 0) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          ClipRRect(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                              child: Image(
+                                  image: AssetImage('assets/notfound.png'))),
+                          SizedBox(
+                            height: 20,
                           ),
-                        );
-                      }
-                      else
-                      {
-                        return Column(
-                          children: [
-                            SizedBox(
-                              height: 800,
-                              child: GridView.builder(
-                                  gridDelegate:
+                        ],
+                      ),
+                    );
+                  } else {
+                    return Column(
+                      children: [
+                        SizedBox(
+                          height: 800,
+                          child: GridView.builder(
+                              gridDelegate:
                                   const SliverGridDelegateWithMaxCrossAxisExtent(
                                       maxCrossAxisExtent: 150,
                                       childAspectRatio: 0.7),
-                                  itemCount: snapshot.data.length,
-                                  itemBuilder: (context, index) {
-                                    if (snapshot.data[index].posterPath == null) {
-                                      return InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    TVDescription(
-                                                      id: snapshot.data[index].id,
-                                                    )),
-                                          );
-                                        },
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: const BorderRadius.all(
-                                                Radius.circular(10.0)),
-                                            color: uppermodecolor,
-                                          ),
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 10),
-                                          margin: const EdgeInsets.only(
-                                              left: 5, right: 10, bottom: 10),
-                                          child: Center(
-                                              child: Text(
-                                                '${snapshot.data[index].name}',
-                                                style: const TextStyle(fontSize: 20),
-                                              )),
-                                        ),
+                              itemCount: snapshot.data.length,
+                              itemBuilder: (context, index) {
+                                if (snapshot.data[index].posterPath == null) {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => TVDescription(
+                                                  id: snapshot.data[index].id,
+                                                )),
                                       );
-                                    } else {
-                                      return InkWell(
-                                        onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    TVDescription(
-                                                      id: snapshot.data[index].id,
-                                                    )),
-                                          );
-                                        },
-                                        child: Container(
-                                          margin: const EdgeInsets.only(
-                                              left: 5, right: 10, bottom: 10),
-                                          child: ClipRRect(
-                                            borderRadius: const BorderRadius.all(
-                                                Radius.circular(5.0)),
-                                            child: Image.network(
-                                              'https://image.tmdb.org/t/p/w500/${snapshot.data[index].posterPath}',
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(10.0)),
+                                        color: uppermodecolor,
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      margin: const EdgeInsets.only(
+                                          left: 5, right: 10, bottom: 10),
+                                      child: Center(
+                                          child: Text(
+                                        '${snapshot.data[index].name}',
+                                        style: const TextStyle(fontSize: 20),
+                                      )),
+                                    ),
+                                  );
+                                } else {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => TVDescription(
+                                                  id: snapshot.data[index].id,
+                                                )),
                                       );
-                                    }
-                                  }),
-                            ),
-                          ],
-                        );
-                      }
-                    } else {
-                      return const SizedBox(
-                        height: 200,
-                      );
-                    }
-                  },
-                ),
-              ]
-          ),
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.only(
+                                          left: 5, right: 10, bottom: 10),
+                                      child: ClipRRect(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(5.0)),
+                                        child: Image.network(
+                                          'https://image.tmdb.org/t/p/w500/${snapshot.data[index].posterPath}',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                              }),
+                        ),
+                      ],
+                    );
+                  }
+                } else {
+                  return const SizedBox(
+                    height: 200,
+                  );
+                }
+              },
+            ),
+          ]),
         ),
       ),
     );
