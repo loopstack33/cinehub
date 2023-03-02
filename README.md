@@ -1,6 +1,6 @@
 # CineHub
 
-![image1](assets/pancake.png)
+[//]: # (![image1]&#40;assets/pancake.png&#41;)
 
 CineHub is an android streaming app for movies, for movies, tv-shows and anime.
 
