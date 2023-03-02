@@ -2,13 +2,13 @@
 
 ![image1](assets/pancake.png)
 
-Pancake is an android streaming app for movies, for movies, tv-shows and anime.
+CineHub is an android streaming app for movies, for movies, tv-shows and anime.
 
 ### Feature
 - Ad free, No Ads whatsoever
 - No tracking/analytics
 - Instant search get results fast
-- Stream any movies , tvshows , animes
+- Stream any movies , tv shows , anime's
 - Fetches data from TMBD
 - Streams movies from 2embed.org
 
